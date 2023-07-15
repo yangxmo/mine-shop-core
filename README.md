@@ -2,5 +2,5 @@
 
 ### 安装
 ``` shell
-composer require yangxmo/mine-core
+composer require yangxmo/mine-shop-core
 ```
