@@ -62,7 +62,12 @@
         "tangwei/apidocs": "^2.1",
         "yurunsoft/phpmailer-swoole": "^1.0",
         "zoujingli/ip2region": "2.0.*",
-        "hyperf-helper/dependency": "^1.0"
+        "hyperf-helper/dependency": "^1.0",
+        "hyperf/resource": "^3.0",
+        "hyperf/constants": "^3.0",
+        "alapi/hyperf-meilisearch": "^3.0",
+        "lysice/hyperf-redis-lock": "^2.1",
+        "hyperf/nsq": "3.0.*"
     },
     "suggest": {
         "ext-openssl": "Required to use HTTPS.",
@@ -83,5 +88,8 @@
         "hyperf": {
             "config": "Mine\\ConfigProvider"
         }
+    },
+    "repositories": {
+
     }
 }

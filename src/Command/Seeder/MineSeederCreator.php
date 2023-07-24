@@ -23,6 +23,6 @@ class MineSeederCreator extends SeederCreator
 {
     public function stubPath(): string
     {
-        return BASE_PATH . '/vendor/xmo/mine-core/src/Command/Seeder/Stubs';
+        return BASE_PATH . '/vendor/yangxmo/mine-shop-core/src/Command/Seeder/Stubs';
     }
 }
