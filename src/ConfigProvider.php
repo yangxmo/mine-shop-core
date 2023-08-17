@@ -18,6 +18,9 @@ declare(strict_types=1);
 
 namespace Mine;
 
+use Mine\Kernel\Db\ConnectionResolver;
+use Mine\Middlewares\TenantMiddleware;
+
 class ConfigProvider
 {
     public function __invoke(): array
@@ -25,6 +28,12 @@ class ConfigProvider
         return [
             // 合并到  config/autoload/dependencies.php 文件
             'dependencies' => [
+                \Hyperf\Database\ConnectionResolverInterface::class => ConnectionResolver::class
+            ],
+            'middlewares' => [
+                'http' => [
+                    TenantMiddleware::class
+                ]
             ],
             // 合并到  config/autoload/annotations.php 文件
             'annotations' => [

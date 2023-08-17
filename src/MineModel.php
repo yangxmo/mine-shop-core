@@ -14,6 +14,7 @@ namespace Mine;
 
 use Hyperf\DbConnection\Model\Model;
 use Hyperf\ModelCache\Cacheable;
+use Mine\Kernel\Tenant\Tenant;
 use Mine\Traits\ModelMacroTrait;
 
 /**
@@ -53,6 +54,8 @@ class MineModel extends Model
         $this->registerBase();
         //注册用户数据权限方法
         $this->registerUserDataScope();
+        // 设置租户
+        $this->connection = Tenant::instance()->getId();
     }
 
     /**
