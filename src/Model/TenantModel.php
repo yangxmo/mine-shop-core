@@ -3,6 +3,7 @@
 namespace Mine\Model;
 
 use Hyperf\Database\Model\SoftDeletes;
+use Mine\Kernel\Tenant\Tenant;
 
 /**
  * @property int $id

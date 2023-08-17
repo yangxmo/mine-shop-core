@@ -55,7 +55,8 @@ class MineModel extends Model
         //注册用户数据权限方法
         $this->registerUserDataScope();
         // 设置租户
-        $this->connection = Tenant::instance()->getId();
+        $tenantId = Tenant::instance()->getId();
+        $tenantId && $this->connection = $tenantId;
     }
 
     /**

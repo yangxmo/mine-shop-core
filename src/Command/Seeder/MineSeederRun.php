@@ -87,8 +87,9 @@ class MineSeederRun extends BaseCommand
             // 获取所有租户ID
             $tenantList = $this->tenantMapper->getListForCursor(['select' => ['tenant_id']]);
             // 执行
+            $this->exec('tourist');
             foreach ($tenantList as $tenant) {
-                $this->exec($tenant->tenant_id);
+                // $this->exec($tenant->tenant_id);
             }
         }
     }

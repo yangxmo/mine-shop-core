@@ -8,7 +8,7 @@ class Tenant
 {
     use StaticInstance;
 
-    public string $tenantId = 'central';
+    public string $tenantId = '';
 
     /**
      * @param string|null $tenantId

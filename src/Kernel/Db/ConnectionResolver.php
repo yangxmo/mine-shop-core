@@ -32,14 +32,13 @@ class ConnectionResolver  implements ConnectionResolverInterface
     {
         if (is_null($name)) {
             $name = $this->getDefaultConnection();
+
+            $tenantId = Tenant::instance()->getId();
+
+            if(!empty($tenantId) && $tenantId != $name) {
+                $name = $tenantId;
+            }
         }
-
-        $tenantId = Tenant::instance()->getId();
-
-        if(!empty($tenantId) && $tenantId != $name) {
-            $name = $tenantId;
-        }
-
         $connection = null;
         $id = $this->getContextKey($name);
         if (Context::has($id)) {
