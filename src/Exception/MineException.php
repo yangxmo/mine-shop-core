@@ -12,7 +12,9 @@
 declare(strict_types=1);
 namespace Mine\Exception;
 
-class MineException extends \RuntimeException
+use Hyperf\Server\Exception\ServerException;
+
+class MineException extends ServerException
 {
 
 }

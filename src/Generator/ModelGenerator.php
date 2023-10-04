@@ -19,6 +19,7 @@ use Mine\Interfaces\ServiceInterface\GenerateColumnServiceInterface;
 use Hyperf\Utils\Filesystem\Filesystem;
 use Mine\Exception\NormalStatusException;
 use Mine\Helper\Str;
+use Mine\Kernel\Tenant\Tenant;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
 
@@ -80,7 +81,8 @@ class ModelGenerator extends MineGenerator implements CodeGenerator
         $command = [
             'command'  => 'mine:model-gen',
             '--module' => $this->model->module_name,
-            '--table'  => $this->model->table_name
+            '--table'  => $this->model->table_name,
+            '--tenant'  => Tenant::instance()->getId()
         ];
 
         if (! Str::contains($this->model->table_name, Str::lower($this->model->module_name))) {

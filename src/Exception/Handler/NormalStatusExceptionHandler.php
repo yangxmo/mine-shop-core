@@ -10,6 +10,14 @@
  */
 
 declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 
 namespace Mine\Exception\Handler;
 
@@ -21,16 +29,10 @@ use Psr\Http\Message\ResponseInterface;
 use Throwable;
 
 /**
- * Class DataNotFoundExceptionHandler
- * @package Mine\Exception\Handler
+ * Class DataNotFoundExceptionHandler.
  */
 class NormalStatusExceptionHandler extends ExceptionHandler
 {
-    /**
-     * @param Throwable $throwable
-     * @param ResponseInterface $response
-     * @return ResponseInterface
-     */
     public function handle(Throwable $throwable, ResponseInterface $response): ResponseInterface
     {
         $this->stopPropagation();
@@ -41,10 +43,10 @@ class NormalStatusExceptionHandler extends ExceptionHandler
         if ($throwable->getCode() != 200 && $throwable->getCode() != 0) {
             $format['code'] = $throwable->getCode();
         }
-//        logger('Exception log')->debug($throwable->getMessage());
+        //        logger('Exception log')->debug($throwable->getMessage());
         return $response->withHeader('Server', 'MineAdmin')
             ->withHeader('Access-Control-Allow-Origin', '*')
-            ->withHeader('Access-Control-Allow-Methods','GET,PUT,POST,DELETE,OPTIONS')
+            ->withHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
             ->withHeader('Access-Control-Allow-Credentials', 'true')
             ->withHeader('Access-Control-Allow-Headers', 'accept-language,authorization,lang,uid,token,Keep-Alive,User-Agent,Cache-Control,Content-Type')
             ->withAddedHeader('content-type', 'application/json; charset=utf-8')

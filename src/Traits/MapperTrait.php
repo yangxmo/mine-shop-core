@@ -285,6 +285,17 @@ trait MapperTrait
     }
 
     /**
+     * 新增数据
+     * @param array $data
+     * @return MineModel|Model
+     */
+    public function create(array $data): MineModel|Model
+    {
+        $this->filterExecuteAttributes($data, $this->getModel()->incrementing);
+        return $this->model::create($data);
+    }
+
+    /**
      * 读取一条数据
      * @param int $id
      * @param array $column
