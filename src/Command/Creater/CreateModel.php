@@ -69,7 +69,7 @@ class CreateModel extends MineCommand
             $db = env('DB_DATABASE') . '_' . $tenant;
             $prefix = env('DB_PREFIX');
 
-            $tables = Db::select('SHOW TABLES');
+            $tables = Db::connection($tenant)->select('SHOW TABLES');
             $key = "Tables_in_{$db}";
 
             $tableList = [];
@@ -87,13 +87,13 @@ class CreateModel extends MineCommand
                 if (!in_array($table, $tableList)) {
                     $this->confirm("Table \"{$table}\" does not exist or not belong to the \"{$module}\" module. Are you sure to generate the model?", false)
                     &&
-                    $this->call('gen:model', ['table' => $table, '--path' => $path]);
+                    $this->call('gen:model', ['table' => $table, '--path' => $path, '--pool' => $tenant]);
                 } else {
-                    $this->call('gen:model', ['table' => $table, '--path' => $path]);
+                    $this->call('gen:model', ['table' => $table, '--path' => $path, '--pool' => $tenant]);
                 }
             } else {
                 foreach ($tableList as $table) {
-                    $this->call('gen:model', ['table' => $table, '--path' => $path]);
+                    $this->call('gen:model', ['table' => $table, '--path' => $path, '--pool' => $tenant]);
                 }
             }
         }
