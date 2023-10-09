@@ -68,7 +68,8 @@
         "tangwei/apidocs": "^2.1",
         "yansongda/hyperf-pay": "^1.5",
         "yurunsoft/phpmailer-swoole": "^1.0",
-        "zoujingli/ip2region": "2.0.*"
+        "zoujingli/ip2region": "2.0.*",
+        "w7corp/easywechat": "^5.34"
     },
     "suggest": {
         "ext-openssl": "Required to use HTTPS.",
