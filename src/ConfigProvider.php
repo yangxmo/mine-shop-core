@@ -19,7 +19,6 @@ declare(strict_types=1);
 namespace Mine;
 
 use Mine\Kernel\Db\ConnectionResolver;
-use Mine\Middlewares\TenantMiddleware;
 
 class ConfigProvider
 {
@@ -32,7 +31,6 @@ class ConfigProvider
             ],
             'middlewares' => [
                 'http' => [
-                    TenantMiddleware::class
                 ]
             ],
             // 合并到  config/autoload/annotations.php 文件
